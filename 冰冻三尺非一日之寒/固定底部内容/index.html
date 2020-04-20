@@ -1,0 +1,78 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-20 15:23:16
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>固定底部内容</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #document {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: #202020;
+        font-family: microsoft yahei,wenquanyi micro hei,sans-serif !important;
+        }
+
+        nav, footer {
+        background: #494949;
+        display: flex;
+        justify-content: center;
+        }
+
+        main {
+        color: #bdbdbd;
+        flex: auto;
+        }
+
+        footer {
+        flex-shrink: 0;
+        }
+
+        * {
+        margin: 0;
+        }
+        h1,
+        p {
+        padding: 15px;
+        }
+
+        nav > h1 {
+        color: #82FCFD;
+        text-shadow: 1px 1px 4px #00000080;
+        }
+
+        footer > h1 {
+        color: #82FCFD;
+        text-shadow: 1px 1px 4px #00000080;
+        }
+        /*
+        知识点总结：
+        flex-grow --- 是用来控制一个flex元素相对它同等级flex元素的自身可扩充的空间
+        flex-shrink --- 作用与flex-grow是恰恰相反，用来控制flex元素收缩的空间
+        */
+    </style>
+</head>
+<body>
+    <div id="document">
+        <nav>
+            <h1>头部内容</h1>
+        </nav>
+        <main>
+            <p>可以添加更多内容看看底部的变化哦！</p>
+        </main>
+        <footer>
+            <h1>底部内容</h1>
+        </footer>
+    </div>
+</body>
+</html>
