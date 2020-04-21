@@ -447,3 +447,141 @@ export function funcUrlDel(name) {
         return url
     }
 }
+/**
+ * @description: 获取窗口可视范围的高度
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function getClientHeight() {
+    let clientHeight = 0;
+    if (document.body.clientHeight && document.documentElement.clientHeight) {
+        clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+    } else {
+        clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+    }
+    return clientHeight;
+}
+
+/**
+ * @description: 获取窗口可视范围宽度
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function getPageViewWidth() {
+    let d = document,
+        a = d.compatMode == "BackCompat" ? d.body : d.documentElement;
+    return a.clientWidth;
+}
+
+/**
+ * @description: 获取窗口宽度
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function getPageWidth() {
+    let g = document,
+        a = g.body,
+        f = g.documentElement,
+        d = g.compatMode == "BackCompat" ? a : g.documentElement;
+    return Math.max(f.scrollWidth, a.scrollWidth, d.clientWidth);
+}
+
+/**
+ * @description: 获取窗口尺寸
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function getViewportOffset() {
+    if (window.innerWidth) {
+        return {
+            w: window.innerWidth,
+            h: window.innerHeight
+        }
+    } else {
+        // ie8及其以下
+        if (document.compatMode === "BackCompat") {
+            // 怪异模式
+            return {
+                w: document.body.clientWidth,
+                h: document.body.clientHeight
+            }
+        } else {
+            // 标准模式
+            return {
+                w: document.documentElement.clientWidth,
+                h: document.documentElement.clientHeight
+            }
+        }
+    }
+}
+
+/**
+ * @description: 获取滚动条距顶部高度
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function getPageScrollTop() {
+    let a = document;
+    return a.documentElement.scrollTop || a.body.scrollTop;
+}
+
+/**
+ * @description: 获取滚动条距左边的高度
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function getPageScrollLeft() {
+    let a = document;
+    return a.documentElement.scrollLeft || a.body.scrollLeft;
+}
+
+/**
+ * @description: 开启全屏
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function launchFullscreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen()
+    } else if (element.mozRequestFullScreen) {
+        element.mozRequestFullScreen()
+    } else if (element.msRequestFullscreen) {
+        element.msRequestFullscreen()
+    } else if (element.webkitRequestFullscreen) {
+        element.webkitRequestFullScreen()
+    }
+}
+
+/**
+ * @description: 关闭全屏
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen()
+    } else if (document.msExitFullscreen) {
+        document.msExitFullscreen()
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen()
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen()
+    }
+}
+
+
+
+
+
+
+
+
+
