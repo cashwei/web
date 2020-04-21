@@ -363,3 +363,87 @@ export const isCapital = value => /^[A-Z]+$/g.test(value);
 export const isLowercase = value => /^[a-z]+$/g.test(value);
 
 //浏览器操作相关browser工具函数
+
+/**
+ * @description: 返回当前url
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const currentURL = () => window.location.href;
+
+/**
+ * @description: 获取url参数（ 第一种）
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function getUrlParam(name, origin = null) {
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    let r = null;
+    if (origin == null) {
+        r = window.location.search.substr(1).match(reg);
+    } else {
+        r = origin.substr(1).match(reg);
+    }
+    if (r != null) return decodeURIComponent(r[2]);
+    return null;
+}
+
+
+/**
+ * @description: 获取url参数（ 第二种）
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function getUrlParams(name, origin = null) {
+    let url = location.href;
+    let temp1 = url.split('?');
+    let pram = temp1[1];
+    let keyValue = pram.split('&');
+    let obj = {};
+    for (let i = 0; i < keyValue.length; i++) {
+        let item = keyValue[i].split('=');
+        let key = item[0];
+        let value = item[1];
+        obj[key] = value;
+    }
+    return obj[name];
+}
+
+/**
+ * @description: 修改url中的参数
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function replaceParamVal(paramName, replaceWith) {
+    var oUrl = location.href.toString();
+    var re = eval('/(' + paramName + '=)([^&]*)/gi');
+    location.href = oUrl.replace(re, paramName + '=' + replaceWith);
+    return location.href;
+}
+
+/**
+ * @description: 删除url中指定的参数
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export function funcUrlDel(name) {
+    var loca = location;
+    var baseUrl = loca.origin + loca.pathname + "?";
+    var query = loca.search.substr(1);
+    if (query.indexOf(name) > -1) {
+        var obj = {};
+        var arr = query.split("&");
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].split("=");
+            obj[arr[i][0]] = arr[i][1];
+        }
+        delete obj[name];
+        var url = baseUrl + JSON.stringify(obj).replace(/[\"\{\}]/g, "").replace(/\:/g, "=").replace(/\,/g, "&");
+        return url
+    }
+}
