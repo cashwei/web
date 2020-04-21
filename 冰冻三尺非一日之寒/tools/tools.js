@@ -40,5 +40,74 @@ export const isWeChatNum = value => /^[a-zA-Z][-_a-zA-Z0-9]{5,19}$/g.test(value)
  */
 export const isColor16 = value => /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/g.test(value);
 
+/**
+ * @description: 验证火车车次
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isTrainNum = value => /^[GCDZTSPKXLY1-9]\d{1,4}$/g.test(value);
 
+/**
+ * @description: 验证手机机身码(IMEI)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isIMEI = value => /^\d{15,17}$/g.test(value);
 
+/**
+ * @description: 验证必须带端口号的网址(或ip)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isHttpAndPort = value => /^((ht|f)tps?:\/\/)?[\w-]+(\.[\w-]+)+:\d{1,5}\/?$/g.test(value);
+
+/**
+ * @description: 验证网址(支持端口和 "?+参数" 和 "#+参数)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isRightWebsite = value => /^(((ht|f)tps?):\/\/)?[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/g.test(value);
+
+/**
+ * @description: 验证统一社会信用代码
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isCreditCode = value => /^[0-9A-HJ-NPQRTUWXY]{2}\d{6}[0-9A-HJ-NPQRTUWXY]{10}$/g.test(value);
+
+/**
+ * @description: 验证迅雷链接
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isThunderLink = value => /^thunderx?:\/\/[a-zA-Z\d]+=$/g.test(value);
+
+/**
+ * @description: 验证ed2k链接(宽松匹配)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const ised2k = value => /^ed2k:\/\/\|file\|.+\|\/$/g.test(value);
+
+/**
+ * @description: 验证磁力链接(宽松匹配)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isMagnet = value => /^magnet:\?xt=urn:btih:[0-9a-fA-F]{40,}.*$/g.test(value);
+
+/**
+ * @description: 验证子网掩码
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isSubnetMask = value => /^(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])(?:\.(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])){3}$/g.test(value);
