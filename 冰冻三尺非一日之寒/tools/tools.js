@@ -111,3 +111,194 @@ export const isMagnet = value => /^magnet:\?xt=urn:btih:[0-9a-fA-F]{40,}.*$/g.te
  * @author: lgw
  */
 export const isSubnetMask = value => /^(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])(?:\.(?:\d{1,2}|1\d\d|2[0-4]\d|25[0-5])){3}$/g.test(value);
+
+/**
+ * @description: 验证linux "文件夹"路径
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isLinuxFolderPath = value => /^(\/[^/]+)+\/?$/g.test(value);
+
+/**
+ * @description: 验证linux "文件"路径
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isLinuxFilePath = value => /^(\/[^/]+)+$/g.test(value);
+
+/**
+ * @description: 验证window "文件夹"路径
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isWindowsFolderPath = value => /^[a-zA-Z]:\\(?:\w+\\?)*$/g.test(value);
+
+/**
+ * @description: 验证window下 "文件"路径
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isWindowsFilePath = value => /^[a-zA-Z]:\\(?:\w+\\)*\w+\.\w+$/g.test(value);
+
+/**
+ * @description: 验证股票代码(A股)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isAShare = value => /^(s[hz]|S[HZ])(000[\d]{3}|002[\d]{3}|300[\d]{3}|600[\d]{3}|60[\d]{4})$/g.test(value);
+
+/**
+ * @description: 验证版本号格式必须为X.Y.Z
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isVersion = value => /^\d+(?:\.\d+){2}$/g.test(value);
+
+/**
+ * @description: 验证视频链接地址（ 视频格式可按需增删）
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isVideoUrl = value => /^https?:\/\/(.+\/)+.+(\.(swf|avi|flv|mpg|rm|mov|wav|asf|3gp|mkv|rmvb|mp4))$/i.test(value);
+
+/**
+ * @description: 验证图片链接地址（ 图片格式可按需增删）
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isImageUrl = value => /^https?:\/\/(.+\/)+.+(\.(gif|png|jpg|jpeg|webp|svg|psd|bmp|tif))$/i.test(value);
+
+/**
+ * @description: 验证银行卡号（ 10 到30位, 覆盖对公 / 私账户, 参考微信支付）
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isAccountNumber = value => /^[1-9]\d{9,29}$/g.test(value);
+
+/**
+ * @description: 验证中文姓名
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isChineseName = value => /^(?:[\u4e00-\u9fa5·]{2,16})$/g.test(value);
+
+/**
+ * @description: 验证英文姓名
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isEnglishName = value => /(^[a-zA-Z]{1}[a-zA-Z\s]{0,20}[a-zA-Z]{1}$)/g.test(value);
+
+/**
+ * @description: 验证车牌号(新能源)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isLicensePlateNumberNER = value => /[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-HJ-NP-Z]{1}(([0-9]{5}[DF])|([DF][A-HJ-NP-Z0-9][0-9]{4}))$/g.test(value);
+
+/**
+ * @description: 验证车牌号(非新能源)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isLicensePlateNumberNNER = value => /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-HJ-NP-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/g.test(value);
+
+/**
+ * @description: 验证车牌号(新能源 + 非新能源)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isLicensePlateNumber = value => /^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-HJ-NP-Z]{1}(?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4})))|(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学警港澳]{1})$/g.test(value);
+
+/**
+ * @description: 验证手机号中国(严谨), 根据工信部2019年最新公布的手机号段
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isMPStrict = value => /^(?:(?:\+|00)86)?1(?:(?:3[\d])|(?:4[5-7|9])|(?:5[0-3|5-9])|(?:6[5-7])|(?:7[0-8])|(?:8[\d])|(?:9[1|8|9]))\d{8}$/g.test(value);
+
+/**
+ * @description: 验证手机号中国(宽松), 只要是13, 14, 15, 16, 17, 18, 19 开头即可
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isMPRelaxed = value => /^(?:(?:\+|00)86)?1[3-9]\d{9}$/g.test(value);
+
+/**
+ * @description: 验证email(邮箱)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isEmail = value => /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/g.test(value);
+
+/**
+ * @description: 验证座机电话(国内), 如: 0341 - 86091234
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isLandlineTelephone = value => /\d{3}-\d{8}|\d{4}-\d{7}/g.test(value);
+
+/**
+ * @description: 验证身份证号(1 代, 15 位数字)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isIDCardOld = value => /^\d{8}(0\d|10|11|12)([0-2]\d|30|31)\d{3}$/g.test(value);
+
+/**
+ * @description: 验证身份证号(2 代, 18 位数字), 最后一位是校验位, 可能为数字或字符X
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isIDCardNew = value => /^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}[\dXx]$/g.test(value);
+
+/**
+ * @description: 验证身份证号, 支持1 / 2 代(15 位 / 18 位数字)
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isIDCard = value => /(^\d{8}(0\d|10|11|12)([0-2]\d|30|31)\d{3}$)|(^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}(\d|X|x)$)/g.test(value);
+
+/**
+ * @description: 验证护照（ 包含香港、 澳门）
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isPassport = value => /(^[EeKkGgDdSsPpHh]\d{8}$)|(^(([Ee][a-fA-F])|([DdSsPp][Ee])|([Kk][Jj])|([Mm][Aa])|(1[45]))\d{7}$)/g.test(value);
+
+/**
+ * @description: 验证帐号是否合法(字母开头， 允许5 - 16 字节， 允许字母数字下划线组合
+ * @param {type} 
+ * @return: 
+ * @author: lgw
+ */
+export const isWebAccount = value => /^[a-zA-Z]\w{4,15}$/g.test(value);
+
+
+
+
+
+
+
