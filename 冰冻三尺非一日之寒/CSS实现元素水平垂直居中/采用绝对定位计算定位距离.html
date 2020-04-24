@@ -1,0 +1,39 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:37:48
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS实现元素水平垂直居中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .outer{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            position: relative;
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            position: absolute;
+            left: 50px;/*（父元素宽度-子元素宽度）/2*/
+            top:50px;/*（父元素高度-子元素高度）/2*/
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

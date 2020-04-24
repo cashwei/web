@@ -1,0 +1,44 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS实现元素水平垂直居中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .outer{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+        /*
+        Flex布局即为弹性布局，只需将父元素设置三个属性即可(display,justify-content,align-items)。
+        
+        注意：利用flex方法代码量少，不用设置子元素的width与height,内容可由子元素里的子元素任意撑开，优雅地溢出。但flex
+        IE8/IE9不支持。
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

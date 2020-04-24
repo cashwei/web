@@ -1,0 +1,50 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:43:36
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS实现元素水平垂直居中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .outer{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            position: relative;
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            margin-top:-50px; /* 子元素高度的一半 */
+            margin-left:-50px; /* 子元素宽度的一半 */
+        }
+        /*
+        当我们设置了left和top各为50%时，子元素左边界距父元素左边界50%,上边界距父元素上边界50%，
+        其实此时，我们可以知道，子元素的左上角这个点，是水平垂直居中的，当我们设了负边距时，
+        我们可以理解为这个子元素向右向上各移了自身长度的一半，这就达到了水平垂直居中。
+        注意：利用负边距方法优点是具有良好的跨浏览器特性，兼容IE6/IE7，
+        但是缺点是不能自适应，需设置子元素的宽高，不支持百分比，且负边距值与padding和是否定义box-sizing:
+        border-box有关，计算需要根据不同情况。
+
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

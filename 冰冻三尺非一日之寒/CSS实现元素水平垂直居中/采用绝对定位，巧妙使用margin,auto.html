@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:44:00
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS实现元素水平垂直居中</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .outer{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            position: relative;
+        }
+        .inner{
+            width: 60%;
+            height: 60%;
+            border: 1px solid #000;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        /*
+        只需要父元素相对定位，子元素绝对定位，然后设置top，bottom，left，right都为0，
+        再设置margin:auto（这时浏览器会给margin-left,margin-right相同的值，margin-top,margin-bottom相同的值，使元素块在父元素中水平垂直居中）即可。
+        注意：利用margin:auto方法支持跨浏览器，支持百分比，但是必须声明子元素的width或height(至少一项，不然会占据父元素所有空间)。
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>
