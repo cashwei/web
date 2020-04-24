@@ -1,0 +1,130 @@
+@mixin thinBorder($directionMaps: bottom, $color: #ccc, $radius:(0, 0, 0, 0), $position: after) {
+    // 是否只有一个方向
+    $isOnlyOneDir: string==type-of($directionMaps);
+
+    @if ($isOnlyOneDir) {
+        $directionMaps: ($directionMaps);
+    }
+
+    @each $directionMap in $directionMaps {
+        border-#{$directionMap}: 1px solid $color;
+    }
+
+    // 判断圆角是list还是number
+    @if(list==type-of($radius)) {
+        border-radius: nth($radius, 1) nth($radius, 2) nth($radius, 3) nth($radius, 4);
+    }
+
+    @else {
+        border-radius: $radius;
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2) {
+        & {
+            position: relative;
+
+            // 删除1像素密度比下的边框
+            @each $directionMap in $directionMaps {
+                border-#{$directionMap}: none;
+            }
+        }
+
+        &:#{$position} {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 200%;
+            height: 200%;
+            transform: scale(0.5);
+            box-sizing: border-box;
+            padding: 1px;
+            transform-origin: 0 0;
+            pointer-events: none;
+            border: 0 solid $color;
+
+            @each $directionMap in $directionMaps {
+                border-#{$directionMap}-width: 1px;
+            }
+
+            // 判断圆角是list还是number
+            @if(list==type-of($radius)) {
+                border-radius: nth($radius, 1)*2 nth($radius, 2)*2 nth($radius, 3)*2 nth($radius, 4)*2;
+            }
+
+            @else {
+                border-radius: $radius*2;
+            }
+
+        }
+    }
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 3) {
+        &:#{$position} {
+
+            // 判断圆角是list还是number
+            @if(list==type-of($radius)) {
+                border-radius: nth($radius, 1)*3 nth($radius, 2)*3 nth($radius, 3)*3 nth($radius, 4)*3;
+            }
+
+            @else {
+                border-radius: $radius*3;
+            }
+
+            width: 300%;
+            height: 300%;
+            transform: scale(0.3333);
+        }
+    }
+}
+/*!
+
+单侧边框
+生成.border-top-1px等4个单侧边框;
+@each $dir in (top, right, bottom, left) {
+    .border-#{$dir}-#{1}px {
+        @include thinBorder($dir);
+    }
+}
+
+
+多侧边框
+生成"红色"的多侧边框.border-top-left-red-1px
+.border-top-left-red-1px {
+    @include thinBorder((top, left), red);
+}
+
+
+圆角边框
+生成带100px圆角的边框 .border-top-left-round-1px
+.border-top-left-red-1px {
+    @include thinBorder(top, red, 100px);
+}
+
+
+使用:before去生成边框
+.border-top-before {
+    @include thinBorder(top, red, 0, before);
+}
+
+
+ios支持小数像素
+其实ios8及其以上是支持小数像素的,
+也可以实现细边框,
+比如border-width:0.5px,
+但是安卓不支持,
+所以如果你只需要兼容ios,
+其实可以直接用小数做单位. 但是我还是建议用上面的mixin,
+毕竟省心效果也一样.
+
+
+总结
+上面封装的mixin兼容性非常好,
+基本所有手机都兼容,
+而且我还做了pc上的兼容,
+请大家放心使用.
+
+
+*/
+
