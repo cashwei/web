@@ -1,0 +1,45 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>巧妙实现带圆角的渐变边框</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .border-image-overflow {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .border-image-overflow::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 10px solid;
+            border-image-source: linear-gradient(45deg, gold, deeppink);
+            border-image-slice: 1;
+            border-image-repeat: stretch;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="border-image-overflow"></div>
+</body>
+</html>

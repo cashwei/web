@@ -1,0 +1,38 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>巧妙实现带圆角的渐变边框</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .border-image{
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            /*border-image: linear-gradient(45deg, gold, deeppink) 1;
+            -webkit-border-image: linear-gradient(45deg, gold, deeppink) 1;
+            -moz-border-image: linear-gradient(45deg, gold, deeppink) 1;*/
+            border-image-source: linear-gradient(45deg, gold, deeppink);
+            border-image-slice: 1;
+            border-image-repeat: stretch;
+        }
+        /*
+        仔细看上面的 Demo，设置了 border-radius: 10px 但是实际表现没有圆角。
+        使用 border-image 最大的问题在于，设置的 border-radius 会失效。
+        */
+    </style>
+</head>
+<body>
+    <div class="border-image"></div>
+</body>
+</html>
