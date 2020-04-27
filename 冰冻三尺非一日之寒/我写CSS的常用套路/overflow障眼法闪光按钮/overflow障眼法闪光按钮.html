@@ -1,0 +1,88 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>overflow障眼法闪光按钮</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato);
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #1A1E23;
+        }
+        .btn{
+            position: relative;
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: hsl(190, 100%, 41%);
+            border: 1px solid hsl(190, 100%, 41%);
+            outline: transparent;
+            overflow: hidden;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            transition: 0.25s;
+        }
+         .btn:hover {
+            background: hsl(190, 100%, 31%);
+         }
+
+         .btn-ghost {
+            color: hsl(190, 100%, 41%);
+            background-color: transparent;
+            border-color: hsl(190, 100%, 41%);
+         }
+         .btn-ghost:hover {
+            color: white;
+         }
+         .btn-shine {
+            color: white;     
+         }
+         .btn-shine:hover::before {
+            transform: translateX(100%);
+         }
+         .btn-shine:hover {
+            background: transparent;
+            box-shadow: 0 0 20px 10px hsla(190, 100%, 41%, 0.5);
+         }
+         .btn-shine::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+            120deg,
+            transparent,
+            hsla(190, 100%, 41%, 0.5),
+            transparent
+            );
+            transform: translateX(-100%);
+            transition: 0.6s;
+         }
+    </style>
+</head>
+<body>
+    <button class="btn btn-primary btn-ghost btn-shine">
+        hover me
+    </button>
+</body>
+</html>
