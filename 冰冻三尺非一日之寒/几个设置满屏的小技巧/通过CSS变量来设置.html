@@ -1,0 +1,44 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>通过 CSS 变量来设置</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html,body{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height:100vh;
+            height:calc(var(--vh,1vh)*100);
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+</body>
+<script>
+    //获取视口高度 *0.01获取vh单位值
+    let vh=((document &&document.documentElement &&document.documentElement.clientHeight) || window.innerHeight)*0.01; 
+    //document中设置自定义CSS属性变量
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    window.addEventListener("resize",
+    ()=>{
+        let vh=((document &&document.documentElement &&document.documentElement.clientHeight) || window.innerHeight)*0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+    )
+</script>
+</html>
