@@ -1,0 +1,36 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>使用vertical-align 同时使用span包裹文本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .wrap {
+            width: 300px;
+            text-align: center;
+            margin: 20px auto;
+            font-size: 14px;
+        }
+        .wrap img {
+            width: 40px;
+            vertical-align: middle;
+        }
+        /*
+        不过就算是flex布局，有时候也会出现一点儿偏差，比如：图片尺寸为偶数、字体font-size为偶数，line-height为偶数时对齐；奇数时偏上1px。
+        */
+    </style>
+</head>
+<body>
+    <div class="wrap"><img src="./logo.png" alt=""><span>xx测试对齐Style</span></div>
+</body>
+</html>

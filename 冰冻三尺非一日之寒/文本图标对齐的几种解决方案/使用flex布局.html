@@ -1,0 +1,43 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>使用flex布局</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .wrap {
+            width: 300px;
+            text-align: center;
+            margin: 20px auto;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .wrap img {
+            width: 40px;
+        }
+        /*
+        我常常按第一种方式来实现对齐效果，因为懒得再写一层span标签，
+        但实际上我们可以再尝试把vertical-align: middle;去掉，会发现跟只在img标签上使用vertical-align:
+        middle;的效果是一样的，
+        也就是说，外层的div上设置vertical-align并没有作用。
+        
+        这是因为，vertical-align起作用是有前提条件的，只能应用于内联元素以及display值为tabale-cell的元素，
+        且vertical-align不可继承。
+        */
+    </style>
+</head>
+<body>
+    <div class="wrap"><img src="./logo.png" alt=""><span>xx测试对齐Style</span></div>
+</body>
+</html>

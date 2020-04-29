@@ -1,0 +1,41 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>vertical-align 数值方式的使用</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .wrap {
+            width: 100%;
+            padding-top: 200px;
+            text-align: center;
+            margin: 20px auto;
+            font-size: 22px;
+            height: 40px;
+        }
+        .wrap img {
+            width: 20px;
+            vertical-align: -2px;
+        }
+        /*
+        vertical-align属性值可以使用数值型和百分比值，
+        如，还是上面的基本案列：如果图片高度是20px，文字font-size为22px时，
+        默认对齐是文字的基线，那么图片会偏上2px，这时只需要将图片向下偏移2px，就能实现对齐效果，
+        而且vertical-align这个属性的数值型具有很好的兼容性。
+        */
+    </style>
+</head>
+<body>
+    <div class="wrap"><img src="./logo.png" alt=""><span>xx测试对齐Style</span></div>
+</body>
+</html>
