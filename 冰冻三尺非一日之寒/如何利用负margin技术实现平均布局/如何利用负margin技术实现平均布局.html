@@ -1,0 +1,63 @@
+<!--
+ * @Description: 
+ * @version: 
+ * @Company: yusys
+ * @Author: lgw
+ * @Date: 2020-04-20 15:16:24
+ * @LastEditors: lgw
+ * @LastEditTime: 2020-04-24 09:50:26
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>如何利用负margin技术实现平均布局</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .father {
+            width: 400px;
+            height: 100px;
+            margin: 10px;
+            background-color: #d5a4cf;
+            outline: 1px solid black;
+        }
+        .son {
+            border: 1px solid black;
+            background-color: #fff1ac;
+            float: left;
+            margin-right: 50px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .middle {
+            margin-right: -50px;
+        }
+
+        作者：Paulahu
+        链接：https://juejin.im/post/5e60bfe05188254934346897
+        来源：掘金
+        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+    </style>
+</head>
+<body>
+    <div class="father clearfix">
+        <div class="middle clearfix">
+            <div class="son"></div>
+            <div class="son"></div>
+            <div class="son"></div>
+        </div>
+    </div>
+</body>
+</html>
